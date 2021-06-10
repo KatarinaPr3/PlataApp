@@ -1,0 +1,105 @@
+﻿@model IEnumerable<PlataApp.Models.Plata>
+
+@{
+    ViewBag.Title = "Lista Podataka";
+}
+
+<h2>Lista</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prezime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adresa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NetoPlata)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bruto1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PoreskoOslobodjenje)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PoreskaOsnovica)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PoreskaStopa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PioZap)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZdrOsigZap)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nezaposlenost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PioPoslodavac)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZdrOsigPoslodavac)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bruto2)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prezime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adresa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NetoPlata)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bruto1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PoreskoOslobodjenje)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PoreskaOsnovica)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PoreskaStopa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PioZap)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZdrOsigZap)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nezaposlenost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PioPoslodavac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZdrOsigPoslodavac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bruto2)
+        </td>
+       
+    </tr>
+}
+
+</table>

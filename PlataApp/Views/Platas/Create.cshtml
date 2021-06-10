@@ -1,0 +1,196 @@
+﻿@model PlataApp.Models.Plata
+
+
+@{
+    ViewBag.Title = "Obracun";
+}
+<html>
+<head>
+   
+
+    <style>
+        .names {
+            display: flex;
+            align-content: center;
+        }
+
+        .result {
+            display: flex;
+            align-self: center;
+            font-size: 16px;
+            font-weight: bold;
+            margin-left: 3vw;
+            border-bottom: 2px solid indianred;
+        }
+
+        .form-horizontal .dialog .control-label {
+            display: flex;
+            align-content: center;
+            font-size: 16px;
+            padding-top: 0;
+        }
+
+        .dialog {
+            margin-top: 15vh;
+            display: flex;
+            align-content: center;
+            justify-content: space-between;
+        }
+
+        .dialog-right {
+            display: flex;
+            align-self: center;
+            flex-direction: column-reverse;
+        }
+
+        .okvir {
+        }
+
+        .form-group .btn {
+            margin-top: 3vh;
+        }
+
+        @@media (max-width: 1200px) {
+            .dialog {
+                padding-left: 20px;
+                flex-direction: column;
+                justify-content: flex-start;
+            }
+
+            .dialog-right {
+                align-self: flex-start;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <br />
+        <br />
+        <br />
+        <h4>Obracun plate</h4>
+        <hr />
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <form id="my-form">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Ime, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Ime, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Ime, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Prezime, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Prezime, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Prezime, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Adresa, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Adresa, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Adresa, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NetoPlata, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.NetoPlata, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.NetoPlata, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Izracunaj" class="btn btn-danger" />
+                    </div>
+                </div>
+
+            </form>
+
+            <!--OBRACUN-->
+
+            <div class="dialog">
+                <div class="dialog-left">
+                    <div class="form-group names">
+                        @Html.LabelFor(model => model.Bruto1, htmlAttributes: new { @class = "control-label" })
+                        <div class="result">
+                            @Html.DisplayFor(model => model.Bruto1)
+                        </div>
+                    </div>
+                    <div class="form-group names">
+                        @Html.LabelFor(model => model.PoreskoOslobodjenje, htmlAttributes: new { @class = "control-label" })
+                        <div class="result">
+                            @Html.DisplayFor(model => model.PoreskoOslobodjenje)
+                        </div>
+                    </div>
+                    <div class="form-group names">
+                        @Html.LabelFor(model => model.PoreskaOsnovica, htmlAttributes: new { @class = "control-label" })
+                        <div class="result">
+                            @Html.DisplayFor(model => model.PoreskaOsnovica)
+                        </div>
+                    </div>
+                    <div class="form-group names">
+                        @Html.LabelFor(model => model.PoreskaStopa, htmlAttributes: new { @class = "control-label" })
+                        <div class="result">
+                            @Html.DisplayFor(model => model.PoreskaStopa)
+                        </div>
+                    </div>
+                    <div class="form-group names">
+                        @Html.LabelFor(model => model.PioZap, htmlAttributes: new { @class = "control-label " })
+                        <div class="result">
+                            @Html.DisplayFor(model => model.PioZap)
+                        </div>
+                    </div>
+                    <div class="form-group names">
+                        @Html.LabelFor(model => model.ZdrOsigZap, htmlAttributes: new { @class = "control-label" })
+                        <div class="result">
+                            @Html.DisplayFor(model => model.ZdrOsigZap)
+                        </div>
+                    </div>
+                    <div class="form-group names">
+                        @Html.LabelFor(model => model.Nezaposlenost, htmlAttributes: new { @class = "control-label" })
+                        <div class="result">
+                            @Html.DisplayFor(model => model.Nezaposlenost)
+                        </div>
+                    </div>
+                </div>
+                <div class="dialog-right">
+                    <div class="form-group names">
+                        @Html.LabelFor(model => model.PioPoslodavac, htmlAttributes: new { @class = "control-label " })
+                        <div class="result">
+                            @Html.DisplayFor(model => model.PioPoslodavac)
+                        </div>
+                    </div>
+                    <div class="form-group names">
+                        @Html.LabelFor(model => model.ZdrOsigPoslodavac, htmlAttributes: new { @class = "control-label" })
+                        <div class="result">
+                            @Html.DisplayFor(model => model.ZdrOsigPoslodavac)
+                        </div>
+                    </div>
+                    <div class="form-group names">
+                        @Html.LabelFor(model => model.Bruto2, htmlAttributes: new { @class = "control-label " })
+                        <div class="result">
+                            @Html.DisplayFor(model => model.Bruto2)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+</body>
+</html>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+}
